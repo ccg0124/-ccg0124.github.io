@@ -37,6 +37,20 @@ h1, h2, h3, h4 {
 
 .card-text {
   color: #2c3e50; /* 深藍文字 */
+  overflow: hidden; /* 隱藏超過的文字 */
+  text-overflow: ellipsis; /* 文字超出時顯示 "..." */
+  white-space: nowrap; /* 防止文字換行 */
+  display: block;
+  height: 80px; /* 設定高度限制 */
+}
+
+.card-text:hover {
+  white-space: normal; /* 滑鼠懸停時顯示完整文字 */
+}
+
+.card-text:after {
+  content: " 更多..."; /* 文字超出時顯示 "更多..." */
+  color: #7aaed6; /* 與文字的顏色一致 */
 }
 
 a {
