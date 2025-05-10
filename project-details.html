@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品詳情</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <section id="project-detail" class="py-5 mt-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <a href="index.html#projects" class="btn btn-outline-primary mb-4">
+              <i class="bi bi-arrow-left"></i> 返回項目列表
+            </a>
+            <div id="project-content"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const projects = {
+      1: {
+        title: "使用 ChatGPT 與 DALL·E 產生圖片的快速入門工具",
+        subtitle: "透過 OpenAI API 快速生成符合敘述的圖片，適合新手上手。",
+        badges: ["生成式 AI", "Python", "OpenAI API"],
+        image: "p4.png",
+        content: `
+          <h4>專案簡介</h4>
+          <p>本程式是透過 OpenAI 提供的 Python API，快速生成 AI 圖片的實用小工具。
+          使用者只需輸入簡單的描述，即可由 OpenAI 的圖像生成模型 DALL·E 3 創建出一張
+          符合敘述的圖片。本專案示範如何整合 API 金鑰、環境變數、與圖片請求功能，是新手
+          快速上手生成式 AI 的好範例。
+          </p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li><strong>使用模型：</strong>DALL·E 3（OpenAI 的高品質圖像生成模型）</li>
+            <li><strong>圖片內容：</strong>輸入文字 prompt，例如 "a white siamese cat"，即可生成對應的圖片。</li>
+            <li><strong>圖片規格：</strong>
+              <ul>
+                <li>尺寸：1024x1024</li>
+                <li>數量：1 張</li>
+                <li>品質：標準</li>
+              </ul>
+            </li>
+            <li><strong>金鑰管理：</strong>使用 dotenv 來安全載入環境變數，不將 API 金鑰硬編碼到程式中。</li>
+            <li><strong>API 呼叫方式：</strong>使用新版 openai SDK 中的 OpenAI() 客戶端</li>
+            <li><strong>用途場景：</strong>可作為快速產生 AI 插圖的工具，或整合至創作、設計、教育等應用中。</li>
+          </ul>
+        `
+      },
+      2: {
+        title: "辨識手機和藍芽耳機的模型",
+        subtitle: "使用 Teachable Machine 建立的影像辨識模型",
+        badges: ["機器學習", "影像辨識", "Teachable Machine"],
+        image: "3.PNG",
+        content: `
+          <h4>專案簡介</h4>
+          <p>本作品使用 Google 的 Teachable Machine 建立模型，能夠透過相機即時辨識出物件是「手機」或「藍芽耳機」，是一個簡單直觀的影像分類實作。</p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li>使用 Teachable Machine 快速建立分類模型</li>
+            <li>支援即時鏡頭辨識</li>
+            <li>模型可部署於網頁平台</li>
+          </ul>
+          <h4 class="mt-4">實際應用</h4>
+          <p>
+            使用者可以開啟模型網頁，打開相機，即可看到模型辨識結果。<br>
+            <a href="https://teachablemachine.withgoogle.com/models/KKdZEROC-/" target="_blank">點我查看模型</a>
+          </p>
+        `
+      },
+      3: {
+        title: "即時影像背景更換工具",
+        subtitle: "使用 MediaPipe 與 OpenCV 製作的即時人物分割與背景替換程式",
+        badges: ["電腦視覺", "OpenCV", "MediaPipe"],
+        image: "p5.png",
+        content: `
+          <h4>專案簡介</h4>
+          <p>本程式是一個使用 <strong>MediaPipe Selfie Segmentation</strong> 模組
+          與 <strong>OpenCV</strong> 製作的即時影像背景更換工具。透過攝影機擷取的畫面，
+          能即時分割人物並將背景更換為圖片、純色，或套用模糊效果。此專案展示了如何使用電腦視覺技術
+          進行即時影像處理，是學習 MediaPipe 與 OpenCV 的良好入門範例。
+          </p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li><strong>使用模組：</strong>MediaPipe 的 SelfieSegmentation、OpenCV、NumPy</li>
+            <li><strong>即時人像分割：</strong>利用 segmentation mask 區分人物與背景</li>
+            <li><strong>背景替換功能：</strong>
+             <ul>
+                <li>可切換3種背景圖片</li>
+                <li>可還原成預設純色背景</li>
+                <li>可開啟模糊背景效果</li>
+              </ul>
+            </li>
+            <li><strong>畫面處理：</strong>固定尺寸 520x300、即時顯示 FPS 效能</li>
+            <li><strong>互動方式：</strong>
+              <ul>
+                <li><kbd>0</kbd>：預設背景</li>
+                <li><kbd>1 / 2 / 3</kbd>：不同背景圖片</li>
+                <li><kbd>b</kbd>：模糊背景</li>
+                <li><kbd>Esc</kbd>：退出程式</li>
+              </ul>
+            </li>
+            <li><strong>用途場景：</strong>可用於線上會議背景替換、互動教學、學生專題展示等。</li>
+          </ul>
+        `
+      },
+      4: {
+        title: "即時手勢辨識系統",
+        subtitle: "使用 MediaPipe 和 OpenCV 製作的互動式手勢辨識工具。",
+        badges: ["電腦視覺", "MediaPipe", "OpenCV", "Python"],
+        image: "p6.png",
+        content: `
+          <h4>專案簡介</h4>
+          <p>
+            本專案運用 MediaPipe 與 OpenCV 製作一套即時手勢辨識系統，能夠透過攝影機捕捉使用者的手部動作，
+            辨識出多種常見手勢（如「讚」、「搖滾」、「OK」、「5」等），並在畫面上即時顯示手勢名稱。
+            當偵測到特定手勢（例如「no!!!」）時，還會對畫面進行模糊與翻轉處理，展示互動效果。
+          </p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li><strong>手勢偵測框架：</strong>使用 MediaPipe 的 Hands 模組偵測 21 個手部節點。</li>
+            <li><strong>角度計算：</strong>利用向量餘弦公式計算每根手指的彎曲角度。</li>
+            <li><strong>手勢判斷：</strong>根據五根手指的角度組合對應出不同的手勢名稱。</li>
+            <li><strong>互動效果：</strong>辨識特定手勢時，畫面會套用高斯模糊與翻轉處理。</li>
+            <li><strong>即時處理：</strong>透過 OpenCV 即時讀取鏡頭畫面並顯示手勢辨識結果。</li>
+          </ul>
+          <h4 class="mt-4">應用場景</h4>
+          <p>
+            本專案可應用於手勢控制介面、人機互動展示、輔助教學（如手語識別）、
+            或創意攝影特效觸發器等用途。
+          </p>
+        `
+      },
+      5: {
+        title: "人臉遮蔽系統（FaceMesh 標記顯示）",
+        subtitle: "使用 MediaPipe FaceMesh 標記臉部特徵，達成人臉遮蔽效果",
+        badges: ["電腦視覺", "MediaPipe", "人臉偵測"],
+        image: "p7.png",
+        content: `
+          <h4>專案簡介</h4>
+          <p>本作品是一個使用 MediaPipe FaceMesh 實作的人臉遮蔽系統。透過 Webcam 即時偵測臉部特徵點，並將臉部輪廓以網格與輪廓線方式繪製，讓臉部資訊無法辨識，達到遮蔽效果。</p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li><strong>使用模型：</strong>MediaPipe FaceMesh（臉部 468 個特徵點）</li>
+            <li><strong>遮蔽方式：</strong>透過 <code>FACEMESH_TESSELATION</code> 與 <code>FACEMESH_CONTOURS</code> 連線繪製臉部區域</li>
+            <li><strong>程式效果：</strong>利用描繪臉部線條達到遮蔽效果，臉部輪廓無法清楚辨識</li>
+            <li><strong>即時處理：</strong>可透過鏡頭即時監控與遮蔽臉部</li>
+          </ul>
+          <h4 class="mt-4">應用情境</h4>
+          <p>可作為影片通話中的臉部隱私保護工具、或用於視覺研究、臉部資料去識別化的簡易實驗框架。</p>
+        `
+      },
+      6: {
+        title: "姿態比對與骨架影片生成系統",
+        subtitle: "以 Flask 與 MediaPipe 實作的舞蹈動作比對與視覺化應用。",
+        badges: ["Flask", "MediaPipe", "Pose Estimation", "OpenCV", "影片處理", "Python"],
+        image: "p8.png",
+        content: `
+          <h4>專案簡介</h4>
+          <p>
+            本系統透過 Flask 架設網頁平台，使用者可上傳一段測試影片與標準影片進行姿態比對。
+            系統使用 MediaPipe Pose 模組分析每一幀的骨架關鍵點，計算兩段影片在動作上的相似度，
+            並生成一段包含雙方骨架動畫與即時分數顯示的合成影片，音訊則保留標準影片原聲。
+          </p>
+          <h4 class="mt-4">技術重點</h4>
+          <ul>
+            <li><strong>骨架偵測：</strong>利用 MediaPipe Pose 擷取全身姿態關鍵點進行比對。</li>
+            <li><strong>動作比對：</strong>透過特徵點正規化與距離計算求出動作相似度。</li>
+            <li><strong>影片合成：</strong>將雙方骨架繪製於同一畫面，並在畫面上顯示即時比對分數。</li>
+            <li><strong>音訊整合：</strong>保留標準影片音訊並合併至輸出影片中，強化觀賞體驗。</li>
+            <li><strong>前後端整合：</strong>以 Flask 架設介面，實現上傳、處理、預覽與下載功能。</li>
+          </ul>
+          <h4 class="mt-4">應用場景</h4>
+          <p>
+            適合用於舞蹈學習平台、動作指導系統或運動姿勢矯正等領域，提供即時回饋與視覺化評估。
+          </p>
+          <h4 class="mt-4">實際應用</h4>
+          <p>
+            實際操作影片<br>
+            <a href="" target="_blank">點我查看影片</a>
+          </p>
+        `
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const project = projects[id];
+
+    if (project) {
+      const container = document.getElementById("project-content");
+      container.innerHTML = `
+        <h1 class="display-4 fw-bold mb-3">${project.title}</h1>
+        <p class="lead text-muted mb-4">${project.subtitle}</p>
+        <div class="mb-4">
+          ${project.badges.map(badge => `<span class="badge bg-primary me-2">${badge}</span>`).join('')}
+        </div>
+        <img src="${project.image}" class="img-fluid rounded mb-4 shadow" alt="專案圖片">
+        <div class="project-description mt-5">
+          ${project.content}
+        </div>
+      `;
+    } else {
+      document.getElementById("project-content").innerHTML = "<p>找不到此專案。</p>";
+    }
+  </script>
+</body>
+</html>
